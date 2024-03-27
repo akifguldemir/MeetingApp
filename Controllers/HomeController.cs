@@ -15,7 +15,17 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        ViewData["greeting"] = DateTime.Now.Hour > 12 ? "İyi Günler" : "Günaydın";
+        ViewData["username"] = "Akif";
+
+        var meetingInfo = new MeetingInfo() {
+            Id = 1,
+            Location = "İstanbul",
+            Date = new DateTime(2024, 01, 20, 20, 0, 0),
+            NumberOfPeople = 100
+        };
+
+        return View(meetingInfo);
     }
 
     public IActionResult Privacy()
