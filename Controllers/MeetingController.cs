@@ -16,17 +16,25 @@ namespace MeetingApp.Controllers
         {
             _logger = logger;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult Apply()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Apply(string Name, string Phone, string Email, bool willAttend)
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult List()
         {
             return View();
