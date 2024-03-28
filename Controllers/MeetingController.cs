@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MeetingApp.Models;
 
 namespace MeetingApp.Controllers
 {
@@ -29,7 +30,7 @@ namespace MeetingApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Apply(string Name, string Phone, string Email, bool willAttend)
+        public IActionResult Apply(UserInfo model)
         {
             return View();
         }

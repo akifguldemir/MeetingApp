@@ -1,23 +1,24 @@
+@model UserInfo
 @{
     ViewData["Title"] = "Başvuru Formu";
 }
 <h1 class="h4 text-center">Toplantı Katılım Formu</h1>
 <form action="" method="post">
     <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" name="name" id="name" class="form-control">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="phone" class="form-label">Phone</label>
-        <input type="text" name="phone" id="phone" class="form-control">
+        <label asp-for="Phone" class="form-label">Phone</label>
+        <input asp-for="Phone" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" name="email" id="email" class="form-control">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="willAttend" class="form-label">Attendance Status</label>
-        <select name="willAttend" id="willAttend" class="form-select">
+        <label asp-for="WillAttend" class="form-label">Attendance Status</label>
+        <select asp-for="WillAttend" class="form-select">
             <option value="true">Evet, Geliyorum.</option>
             <option value="false">Hayır, Gelmiyorum.</option>
         </select>
