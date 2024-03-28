@@ -16,7 +16,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewData["greeting"] = DateTime.Now.Hour > 12 ? "İyi Günler" : "Günaydın";
-
+        ViewBag.UserCount = Repository.getUsers.Where(i => i.WillAttend == true).Count();
         var meetingInfo = new MeetingInfo() {
             Id = 1,
             Location = "İstanbul",
