@@ -37,6 +37,12 @@ namespace MeetingApp.Controllers
         {
             return View(Repository.getUsers);
         }
+        
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            return View(Repository.GetById(id));
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
