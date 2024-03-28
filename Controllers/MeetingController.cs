@@ -17,12 +17,7 @@ namespace MeetingApp.Controllers
         {
             _logger = logger;
         }
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+ 
         [HttpGet]
         public IActionResult Apply()
         {
@@ -32,13 +27,15 @@ namespace MeetingApp.Controllers
         [HttpPost]
         public IActionResult Apply(UserInfo model)
         {
-            return View();
+            Repository.addUser(model);
+            ViewBag.UserCount = Repository.getUsers.Where(i => i.WillAttend == true).Count();
+            return View("Thanks", model);
         }
 
         [HttpGet]
         public IActionResult List()
         {
-            return View();
+            return View(Repository.getUsers);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
