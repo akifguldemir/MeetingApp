@@ -1,3 +1,4 @@
+@model List<UserInfo>
 <main class="text-center">
     <h1 class="h4">Toplantıya katılım lsitesi</h1>
     <table class="table table-bordered">
@@ -9,21 +10,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Akif GÜldemir</td>
-                <td>Evet</td>
-                <td>
-                    <a class="btn btn-sm btn-primary" href="#">Detay</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Hilal GÜldemir</td>
-                <td>Evet</td>
-                <td>
-                    <a class="btn btn-sm btn-primary" href="#">Detay</a>
-                </td>
 
-            </tr>
+            @{ int i = 0; }
+            @foreach(var user in Model)
+            {
+                var status = user.WillAttend ? "Evet" : "Hayır";
+                var className = user.WillAttend ? "table-success" : "table-danger";
+
+                if(user.WillAttend) i++;
+
+                <tr class="@className">
+                    <td>@user.Name</td>
+                    <td>@status</td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="#">Detay</a>
+                    </td>
+                </tr>
+            }
+
+            <div class="card">
+                <div class="card-body">
+                    <span>Katılımcı sayısı: @i</span>
+                </div>
+            </div>
+
         </tbody>
     </table>
 </main>
