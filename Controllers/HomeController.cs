@@ -16,7 +16,6 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewData["greeting"] = DateTime.Now.Hour > 12 ? "İyi Günler" : "Günaydın";
-        ViewData["username"] = "Akif";
 
         var meetingInfo = new MeetingInfo() {
             Id = 1,
