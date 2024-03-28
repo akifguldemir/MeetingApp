@@ -27,9 +27,15 @@ namespace MeetingApp.Controllers
         [HttpPost]
         public IActionResult Apply(UserInfo model)
         {
-            Repository.addUser(model);
-            ViewBag.UserCount = Repository.getUsers.Where(i => i.WillAttend == true).Count();
-            return View("Thanks", model);
+
+            if(ModelState.IsValid) {
+                Repository.addUser(model);
+                ViewBag.UserCount = Repository.getUsers.Where(i => i.WillAttend == true).Count();
+                return View("Thanks", model);
+            } else {
+                return View(model);
+            }
+       
         }
 
         [HttpGet]
@@ -37,7 +43,7 @@ namespace MeetingApp.Controllers
         {
             return View(Repository.getUsers);
         }
-        
+
         [HttpGet]
         public IActionResult Details(int id)
         {
